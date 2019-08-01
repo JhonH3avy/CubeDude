@@ -12,7 +12,7 @@ dest_files=[ "res://.import/Goal.dae-8d617b8f493216c0a8ebed80c9324f29.scn" ]
 [params]
 
 nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_name="Goal"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
