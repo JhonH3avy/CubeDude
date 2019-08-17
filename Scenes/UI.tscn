@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cubedude_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/PlayerScore.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/CelebrationUI.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/Kenney Bold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_space = 10
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "GoalCelebration"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9, 3, 3.9, 4, 4.9, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "GOAL!", "3", "2", "1" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 3.9, 4, 4.9, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Player1Score" type="HBoxContainer" parent="." groups=[
+"score_player1",
+]]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 288.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_constants/separation = 15
+script = ExtResource( 2 )
+
+[node name="PlayerLabel" type="Label" parent="Player1Score"]
+margin_right = 112.0
+margin_bottom = 24.0
+text = "Player 1"
+
+[node name="PlayerScore" type="Label" parent="Player1Score"]
+margin_left = 127.0
+margin_right = 143.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="Player2Score" type="HBoxContainer" parent="." groups=[
+"score_player2",
+]]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -258.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = 24.0
+theme = ExtResource( 1 )
+custom_constants/separation = 15
+alignment = 2
+script = ExtResource( 2 )
+
+[node name="PlayerLabel" type="Label" parent="Player2Score"]
+margin_left = 81.0
+margin_right = 197.0
+margin_bottom = 24.0
+text = "Player 2"
+
+[node name="PlayerScore" type="Label" parent="Player2Score"]
+margin_left = 212.0
+margin_right = 228.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="CelebrationUI" type="CenterContainer" parent="." groups=[
+"celebration",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CelebrationUI"]
+visible = false
+margin_left = 489.0
+margin_top = 255.0
+margin_right = 534.0
+margin_bottom = 345.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CelebrationUI"]
+anims/GoalCelebration = SubResource( 2 )

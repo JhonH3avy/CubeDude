@@ -12,9 +12,13 @@ export var speed = 10
 
 export var color_material : Material
 
+export(NodePath) var initial_position_path
+var initial_position
+
 
 func _ready():
 	$"Armature/Skeleton/Cube Dube".set_surface_material(0,color_material)
+	initial_position = get_node(initial_position_path)
 
 
 func _physics_process(delta):
@@ -56,6 +60,10 @@ func move():
 		motion.z = 0
 	
 	move_and_slide(motion.normalized() * speed, UP)
+
+
+func reset_to_initial_state():
+	translation = initial_position.translation
 
 
 func fall():
