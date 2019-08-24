@@ -14,6 +14,7 @@ export var color_material : Material
 
 export(NodePath) var initial_position_path
 var initial_position
+var temp_speed
 
 
 func _ready():
@@ -43,6 +44,15 @@ func animate():
 func face_forward():
 	if not motion.x == 0 or not motion.z == 0:
 		look_at(Vector3(translation.x - motion.x, 0, translation.z - motion.z), UP)
+
+
+func on_stop_game():
+	temp_speed = speed
+	speed = 0
+
+
+func on_start_game():
+	speed = temp_speed	
 
 
 func move():

@@ -10,5 +10,8 @@ func _ready():
 
 func reset_to_initial_state():
 	translation = initial_position.translation
-	angular_velocity = Vector3(0,0,0)
+
+
+func on_stop_game():
 	linear_velocity = Vector3(0,0,0)
+	angular_velocity = Vector3(0,0,0)

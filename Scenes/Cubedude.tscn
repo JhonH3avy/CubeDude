@@ -10,6 +10,7 @@ height = 1.29785
 
 [node name="Cubedude" groups=[
 "goal_made",
+"main_game",
 ] instance=ExtResource( 1 )]
 input_ray_pickable = false
 collision_layer = 4
