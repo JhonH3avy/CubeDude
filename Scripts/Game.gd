@@ -15,6 +15,7 @@ func report_goal(player_number):
 	get_tree().call_group("main_game", "on_stop_game")
 	get_tree().call_group("celebration", "start_celebration")
 	$CelebrationTimer.start()
+	$HornSound.play()
 	
 	
 func reset_scene():

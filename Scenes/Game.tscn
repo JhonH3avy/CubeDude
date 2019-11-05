@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pitch.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Models/Goal/GoalBlue.material" type="Material" id=10]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SFX/dominoespizzaakacatchme.ogg" type="AudioStream" id=12]
+[ext_resource path="res://SFX/airhorn.ogg" type="AudioStream" id=13]
 
 [node name="Game" type="Spatial" groups=[
 "game_manager",
@@ -58,7 +60,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 0, 0 )
 
 [node name="Goals" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Goal1" parent="Goals" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -86,6 +87,13 @@ shadow_enabled = true
 [node name="CelebrationTimer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="HornSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 [connection signal="timeout" from="CelebrationTimer" to="." method="_on_CelebrationTimer_timeout"]
 
 [editable path="Goals/Goal1"]

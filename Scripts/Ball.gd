@@ -15,3 +15,8 @@ func reset_to_initial_state():
 func on_stop_game():
 	linear_velocity = Vector3(0,0,0)
 	angular_velocity = Vector3(0,0,0)
+
+
+func _on_Ball_body_entered(body):
+	if not $HitSound.playing and body is KinematicBody:
+		$HitSound.play()
