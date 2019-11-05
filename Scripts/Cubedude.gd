@@ -81,3 +81,7 @@ func fall():
 		motion.y = 0
 	else:
 		motion.y = GRAVITY
+
+func emit_particles(player_id):
+	if player_number == player_id:
+		$Particles.emitting = true

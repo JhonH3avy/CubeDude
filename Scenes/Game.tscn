@@ -40,7 +40,6 @@ pathToTarget = NodePath("../Pitch/Ball")
 environment = ExtResource( 5 )
 
 [node name="Players" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player1" parent="Players" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0, 0 )
